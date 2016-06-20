@@ -553,19 +553,18 @@ class Default_EmppersonaldetailsController extends Zend_Controller_Action
 					$tableid  = '';
 		
 					$data = array('user_id'=>$user_id,
-						                 'genderid'=>$genderid,
-										 'maritalstatusid'=>$maritalstatusid,
-		                                 'nationalityid'=>$nationalityid,
-		                                 'ethniccodeid'=>$ethniccodeid,
-		                                 'racecodeid'=>$racecodeid,
-		                                 'languageid'=>$languageid,    								 
-						      			 'dob'=>$dob,
-										 //'celebrated_dob'=>($celebrated_dob!=''?$celebrated_dob:NULL),
-						      			 'bloodgroup'=>($bloodgroup!=''?$bloodgroup:NULL),
-										 'identity_documents'=>(!empty($identitydocArr)?$identitydocjson:NULL),	
-										 'modifiedby'=>$loginUserId,
-					                     'modifieddate'=>gmdate("Y-m-d H:i:s")
-		
+                                            'genderid'=>empty($genderid) ? null : $genderid,
+                                            'maritalstatusid'=>empty($maritalstatusid) ? null : $maritalstatusid,
+		                            'nationalityid'=> empty($nationalityid) ? null : $nationalityid,
+		                            'ethniccodeid'=> empty($ethniccodeid) ? null : $ethniccodeid,
+		                            'racecodeid'=> empty($racecodeid) ? null : $racecodeid,
+		                            'languageid'=> empty($languageid) ? null : $languageid,    								 
+					    'dob'=> empty($dob) ? null : $dob,
+                                            //'celebrated_dob'=>($celebrated_dob!=''?$celebrated_dob:NULL),
+                                            'bloodgroup'=>($bloodgroup!=''?$bloodgroup:NULL),
+                                            'identity_documents'=>(!empty($identitydocArr)?$identitydocjson:NULL),	
+                                            'modifiedby'=>$loginUserId,
+                                            'modifieddate'=>gmdate("Y-m-d H:i:s")
 					);
 					if($id!=''){
 						$where = array('user_id=?'=>$user_id);

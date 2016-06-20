@@ -234,7 +234,8 @@ class Default_EmployeeController extends Zend_Controller_Action
 						'position_id'=>$position_id, 
 						'prefix_id'=>$prefix_id,    
 						'reporting_manager' => 0,
-						'date_of_joining'=>$date_of_joining,  
+						'date_of_joining'=>$date_of_joining,
+                                                'date_of_leaving'=>NULL,
 						'createdby'	=> $loginUserId,
 						'createddate' => gmdate("Y-m-d H:i:s"),						
 						'modifiedby'=>$loginUserId,				
@@ -1585,7 +1586,7 @@ public function editappraisal($id,$performanceflag,$ff_flag)
                                     'employeeId' => $employeeId,
                                     'modeofentry' => ($id =='')?$modeofentry:"",                                                              
                                     'selecteddate' => $date_of_joining,
-                                    'candidatereferredby' => $candidatereferredby,
+                                    'candidatereferredby' => empty($candidatereferredby) ? null : $candidatereferredby,
                                     'userstatus' => 'old',
                                     'other_modeofentry' => $other_modeofentry,
 				);
@@ -1757,6 +1758,9 @@ public function editappraisal($id,$performanceflag,$ff_flag)
 			{
 				
 				$trDb->rollBack();
+                                echo '<pre>';
+                                var_dump($e);
+                                die;
 				$msgarray['employeeId'] = "Something went wrong, please try again later.";
 				return $msgarray;
 			}

@@ -73,13 +73,14 @@ class Default_Form_empcommunicationdetails extends Zend_Form
                                         Zend_Validate_StringLength::TOO_SHORT =>
                                         'Postal code must contain at least %min% characters.')))));
 		
-        $perm_pincode->addValidator("regex",true,array(
-                           'pattern'=>'/^(?!0{3})[0-9a-zA-Z]+$/', 
-
-                           'messages'=>array(
-                               'regexNotMatch'=>'Please enter valid postal code.'
-                           )
-        	));
+        //@mpsoares13 (2016-06-20): Commented excessively restricted validation regex
+//        $perm_pincode->addValidator("regex",true,array(
+//                           'pattern'=>'/^(?!0{3})[0-9a-zA-Z]+$/', 
+//
+//                           'messages'=>array(
+//                               'regexNotMatch'=>'Please enter valid postal code.'
+//                           )
+//        	));
         			
 
         $current_streetaddress = new Zend_Form_Element_Text('current_streetaddress');
@@ -117,14 +118,15 @@ class Default_Form_empcommunicationdetails extends Zend_Form
                                         Zend_Validate_StringLength::TOO_SHORT =>
                                         'Postal code must contain at least %min% characters.')))));
 		
-        $current_pincode->addValidator("regex",true,array(
-		                    'pattern'=>'/^(?!0{3})[0-9a-zA-Z]+$/', 
-                           
-                          
-                           'messages'=>array(
-                               'regexNotMatch'=>'Please enter valid postal code.'
-                           )
-        	));	
+        //@mpsoares13 (2016-06-20): Commented excessively restricted validation regex
+//        $current_pincode->addValidator("regex",true,array(
+//		                    'pattern'=>'/^(?!0{3})[0-9a-zA-Z]+$/', 
+//                           
+//                          
+//                           'messages'=>array(
+//                               'regexNotMatch'=>'Please enter valid postal code.'
+//                           )
+//        	));	
 		
         $address_flag = new Zend_Form_Element_Checkbox('address_flag');
         $address_flag->setAttrib('onclick', 'populateCurrentAddress(this)');

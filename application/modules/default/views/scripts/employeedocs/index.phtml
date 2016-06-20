@@ -173,7 +173,7 @@ $(document).ready(function(){
 	    showFileCounter:false,
 	    duplicateStrict:true,
 	    showDelete:true,
-	    maxFileSize:2*1024*1024, // Maximum allowed file size: 2MB
+	    maxFileSize:<?=MAX_UPLOAD_SIZE;?>*1024*1024, // Maximum allowed file size: 2MB
 	    maxFileCount:5,
 	    showAbort: false,
 	    showDone:false,

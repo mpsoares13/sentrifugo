@@ -533,3 +533,8 @@ defined('EMPLOYEEPROJECTS_DELETE')|| define('EMPLOYEEPROJECTS_DELETE','employee 
 defined('LEADPROJECTS_DELETE')|| define('LEADPROJECTS_DELETE','lead projects delete'); 
 
 //==========================END FOR TIME MANAGEMENT CONSTANTS=============================
+
+//========================== FILE UPLOAD CONSTANTS =============================
+// Max Upload Size in MB
+defined('MAX_UPLOAD_SIZE') || define('MAX_UPLOAD_SIZE',
+    (getenv('MAX_UPLOAD_SIZE') ? getenv('MAX_UPLOAD_SIZE') : '50'));
